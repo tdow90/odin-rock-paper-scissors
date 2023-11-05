@@ -7,6 +7,9 @@ function getComputerChoice() {
 
 // This function actually plays each round, players input, vs the computers. 
 function playRound(play1, play2) {
+    const element = document.getElementById("result");
+    element.innerHTML = ""
+
      if (play1 == 'rock' && play2 == 'scisors'){
          result = 'win';
      }
@@ -55,6 +58,39 @@ function playRound(play1, play2) {
     score.textContent = 'Your Score: ' + yourScore + ' Computer Score: ' + computerScore ;
 
     scoreMessage.appendChild(score);
+
+    if (yourScore == 5) {
+        const element = document.getElementById("result");
+        element.innerHTML = ""
+
+        const gameOver = document.querySelector('#result');
+
+        const finalResult = document.createElement('p');
+        finalResult.classList.add('score');
+        finalResult.textContent = 'You win! - make a play to start over' ;
+
+        gameOver.appendChild(finalResult);        
+
+        yourScore = 0;
+        computerScore = 0;
+
+    }
+    else if (computerScore == 5) {
+        const element = document.getElementById("result");
+        element.innerHTML = ""
+
+        const gameOver = document.querySelector('#result');
+
+        const finalResult = document.createElement('p');
+        finalResult.classList.add('score');
+        finalResult.textContent = 'You lose! - make a play to start over' ;
+
+        gameOver.appendChild(finalResult);        
+
+        yourScore = 0;
+        computerScore = 0;
+
+    }
 
     }
     let yourScore = 0;
